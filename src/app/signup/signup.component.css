@@ -1,4 +1,4 @@
-:host{
+:host {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,7 +7,7 @@
 
 }
 
-.signup-container{
+.signup-container {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -20,11 +20,11 @@
     gap: 30px;
 }
 
-.signup-header{
+.signup-header {
     margin-bottom: 20px;
 }
 
-.signup-form{
+.signup-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -34,13 +34,15 @@
 .user-data {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    gap: 5px;
 }
 
-label{
+label {
     font-size: 18px;
 }
 
-.login{
+.login {
     font-size: 14px;
     color: #007bff;
     margin: auto;
@@ -48,7 +50,7 @@ label{
     cursor: pointer;
 }
 
-.signup-button{
+.signup-button {
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
@@ -64,4 +66,20 @@ label{
     border-radius: .25rem;
     margin-top: 15px;
     cursor: pointer;
+}
+
+.error {
+    display: flex;
+    justify-content: end;
+    font-size: 12px;
+    color: red;
+}
+
+.common-error {
+    color: red;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
 }

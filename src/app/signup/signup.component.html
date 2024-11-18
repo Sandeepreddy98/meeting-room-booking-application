@@ -1,36 +1,67 @@
 <div class="signup-container">
   <div class="signup-header">Signup</div>
-  <form (ngSubmit)="signup()" class="signup-form">
+  <form (ngSubmit)="signUp()" [formGroup]="signupForm" class="signup-form">
     <div class="user-data">
       <label for="name">Name </label>
       <input
-        [(ngModel)]="user.name"
+        formControlName="name"
         type="text"
         name="name"
         placeholder="Enter name"
+        [class.invalid]="f['name'].invalid && f['name'].touched"
         required
+        autofocus
+        autocomplete="off"
       />
+      <div *ngIf="f['name']?.invalid && f['name']?.touched" class="error">
+        <div *ngIf="f['name']?.errors?.['required']">Username is required.</div>
+        <div *ngIf="f['name']?.errors?.['minlength']">
+          Username must be at least 3 characters.
+        </div>
+      </div>
     </div>
     <div class="user-data">
       <label for="email">Email </label>
       <input
-        [(ngModel)]="user.email"
+        formControlName="email"
         type="text"
         name="email"
         placeholder="Enter mail"
+        [class.invalid]="f['email'].invalid && f['email'].touched"
         required
+        autocomplete="off"
       />
+      <div *ngIf="f['email']?.invalid && f['email']?.touched" class="error">
+        <div *ngIf="f['email']?.errors?.['required']">Email is required.</div>
+        <div *ngIf="f['email']?.errors?.['email']">
+          Please enter a valid email.
+        </div>
+      </div>
     </div>
+
     <div class="user-data">
       <label for="password">Password </label>
       <input
-        [(ngModel)]="user.password"
+        formControlName="password"
         type="password"
         name="password"
         type="Enter password"
         required
+        autocomplete="off"
       />
+      <div
+        *ngIf="f['password']?.invalid && f['password']?.touched"
+        class="error"
+      >
+        <div *ngIf="f['password']?.errors?.['required']">
+          Password is required.
+        </div>
+        <div *ngIf="f['password']?.errors?.['minlength']">
+          Password must be at least 8 characters.
+        </div>
+      </div>
     </div>
+    <div *ngIf="message" class="common-error">{{ message }}</div>
     <button type="submit" class="signup-button">Sign Up</button>
     <a [routerLink]="'/login'" class="login">Login</a>
   </form>
