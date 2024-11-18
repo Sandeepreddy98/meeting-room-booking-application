@@ -1,0 +1,37 @@
+<div class="signup-container">
+  <div class="signup-header">Signup</div>
+  <form (ngSubmit)="signup()" class="signup-form">
+    <div class="user-data">
+      <label for="name">Name </label>
+      <input
+        [(ngModel)]="user.name"
+        type="text"
+        name="name"
+        placeholder="Enter name"
+        required
+      />
+    </div>
+    <div class="user-data">
+      <label for="email">Email </label>
+      <input
+        [(ngModel)]="user.email"
+        type="text"
+        name="email"
+        placeholder="Enter mail"
+        required
+      />
+    </div>
+    <div class="user-data">
+      <label for="password">Password </label>
+      <input
+        [(ngModel)]="user.password"
+        type="password"
+        name="password"
+        type="Enter password"
+        required
+      />
+    </div>
+    <button type="submit" class="signup-button">Sign Up</button>
+    <a [routerLink]="'/login'" class="login">Login</a>
+  </form>
+</div>
