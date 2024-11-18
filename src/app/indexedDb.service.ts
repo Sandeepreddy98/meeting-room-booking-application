@@ -7,6 +7,7 @@ export class IndexedDbService {
   private dbName = 'MeetingRoom';  // Database name
   private dbVersion = 1;      // Database version
   private db: IDBDatabase | null = null;
+  secretKey : string = 'This is sandeep Reddy' 
 
   constructor() {
     this.openDb();

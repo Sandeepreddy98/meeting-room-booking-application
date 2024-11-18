@@ -47,7 +47,6 @@ export class SignupComponent implements OnInit{
 
     try{
       const emailExist = await this.dbService.getUserByEmail(email)
-      console.log(emailExist);
       
       if(emailExist){
         this.message = 'Email already in use'
@@ -55,6 +54,7 @@ export class SignupComponent implements OnInit{
       }
 
       const passwordHash = CryptoJS.AES.encrypt(password, password).toString()
+      
       const newUser = {
         name : name,
         email : email,
